@@ -31,3 +31,13 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: microservicespringcloud-dept-8001
+    prefer-ip-address: true
+
+#info信息
+info:
+  app.name: microservicespringcloud-dept-8001
+  company.name: www.yubing.tk
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}

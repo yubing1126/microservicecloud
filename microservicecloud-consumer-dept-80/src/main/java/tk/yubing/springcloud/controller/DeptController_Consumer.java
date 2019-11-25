@@ -41,9 +41,14 @@ public class DeptController_Consumer {
         return restTemplate.getForObject(providerUrl + "/dept/get/" + id, Dept.class);
     }
 
-
     @GetMapping(value = "/consumer/dept/list")
     public List<Dept> list() {
         return restTemplate.getForObject(providerUrl + "/dept/list/", List.class);
+    }
+
+
+    @GetMapping(value="/consumer/dept/discovery")
+    public Object discovery()  {
+        return restTemplate.getForObject(providerUrl + "/dept/discovery", Object.class);
     }
 }
