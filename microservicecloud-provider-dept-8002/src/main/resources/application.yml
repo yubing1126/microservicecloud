@@ -1,0 +1,43 @@
+#配置服务器信息
+server:
+  port: 8002
+
+#数据库信息配置
+spring:
+  application:
+    name: microservicespringcloud-dept  #应用名称
+  datasource:
+    url: jdbc:mysql://192.168.1.27:3306/cloudDB02
+    username: root
+    password: yubing1126
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+
+#Mybatis配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: tk.yubing.springcloud.entities
+  configuration:
+    map-underscore-to-camel-case: true #开启驼峰命名
+    cache-enabled: true #开启二级缓存
+
+#eureka注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+  instance:
+    instance-id: microservicespringcloud-dept-8002
+    prefer-ip-address: true
+
+#info信息
+info:
+  app.name: microservicespringcloud-dept-8002
+  company.name: www.yubing.tk
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}

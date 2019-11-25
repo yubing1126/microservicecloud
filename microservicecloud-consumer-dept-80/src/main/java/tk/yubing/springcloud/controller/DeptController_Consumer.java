@@ -23,32 +23,28 @@ public class DeptController_Consumer {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value(value = "${provider.url}")
-    private String providerUrl;
+    //@Value(value = "${provider.url}")
+    private static String Provider_Url = "http://MICROSERVICESPRINGCLOUD-DEPT";
 
-    @GetMapping(value = "/consumer/1")
-    public Integer get() {
-        return 1;
-    }
     @PostMapping(value = "/consumer/dept/add")
     public boolean add(@RequestBody Dept dept) {
-        return restTemplate.postForObject(providerUrl, dept, Boolean.class);
+        return restTemplate.postForObject(Provider_Url, dept, Boolean.class);
     }
 
     @GetMapping(value = "/consumer/dept/get/{id}")
     public Dept get(@PathVariable Long id) {
-        System.out.println(providerUrl + "/dept/get/" + id);
-        return restTemplate.getForObject(providerUrl + "/dept/get/" + id, Dept.class);
+        System.out.println(Provider_Url + "/dept/get/" + id);
+        return restTemplate.getForObject(Provider_Url + "/dept/get/" + id, Dept.class);
     }
 
     @GetMapping(value = "/consumer/dept/list")
     public List<Dept> list() {
-        return restTemplate.getForObject(providerUrl + "/dept/list/", List.class);
+        return restTemplate.getForObject(Provider_Url + "/dept/list/", List.class);
     }
 
 
     @GetMapping(value="/consumer/dept/discovery")
     public Object discovery()  {
-        return restTemplate.getForObject(providerUrl + "/dept/discovery", Object.class);
+        return restTemplate.getForObject(Provider_Url + "/dept/discovery", Object.class);
     }
 }
