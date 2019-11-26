@@ -1,0 +1,4 @@
+tk\yubing\springcloud\fallback\DeptClientServiceFallackFactory.class
+tk\yubing\springcloud\entities\Dept.class
+tk\yubing\springcloud\fallback\DeptClientServiceFallackFactory$1.class
+tk\yubing\springcloud\server\DeptClientServer.class
